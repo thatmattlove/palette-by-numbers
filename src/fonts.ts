@@ -9,6 +9,10 @@ function isFontFamily(font: string): font is FontFamily {
   return ['monospace', 'sans-serif', 'serif'].includes(font);
 }
 
+const FontFamilyError = new Error(
+  "The first argument should be 'monospace', 'sans-serif', or 'serif'.",
+);
+
 const sansSerifFonts = [
   '-apple-system',
   'BlinkMacSystemFont',
@@ -58,7 +62,7 @@ export function generateFontFamily(family: FontFamily, font: string, ...fonts: s
   });
 
   if (!isFontFamily(family.toLowerCase())) {
-    throw new Error("The first argument should be 'monospace', 'sans-serif', or 'serif'.");
+    throw FontFamilyError;
   }
 
   switch (family.toLowerCase()) {
@@ -68,5 +72,7 @@ export function generateFontFamily(family: FontFamily, font: string, ...fonts: s
       return [...cleanedFonts, ...sansSerifFonts].join(', ');
     case 'serif':
       return [...cleanedFonts, ...serifFonts].join(', ');
+    default:
+      throw FontFamilyError;
   }
 }
