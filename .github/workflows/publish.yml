@@ -22,8 +22,9 @@ jobs:
           cp LICENSE dist/
           cp README dist/
           cp CHANGELOG dist/
-      - name: NPM Publish
+      - name: Change Directory
         run: 'cd dist'
+      - name: NPM Publish
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
