@@ -1,6 +1,6 @@
 import { hsla, saturate, desaturate, parseToHsla, transparentize } from 'color2k';
 
-import type { IterIndex, FontList, FontFamily, ColorIndex, Palette } from './types';
+import type { IterIndex, ColorIndex, Palette, PaletteOptions } from './types';
 
 /**
  * Type guard to ensure the index is in range.
@@ -53,7 +53,9 @@ export function transparentPalette(color: string): Palette {
  *
  * @param color Base color, can be any hex, rgb, rgba, hsl, or hsla value.
  */
-export function generatePalette(color: string): Palette {
+export function generatePalette(color: string, options: PaletteOptions = {}): Palette {
+  const { originalAtMidpoint = true } = options;
+
   const colorMap = {} as Palette;
 
   const lightnessMap = [0.95, 0.85, 0.75, 0.65, 0.55, 0.45, 0.35, 0.25, 0.15, 0.05];
@@ -83,7 +85,7 @@ export function generatePalette(color: string): Palette {
 
   for (const [index, col] of colors.entries()) {
     const colorIndex = getColorNumber(index);
-    if (colorIndex === 500) {
+    if (colorIndex === 500 && originalAtMidpoint) {
       colorMap[500] = color;
     } else {
       colorMap[colorIndex] = col;
@@ -91,48 +93,4 @@ export function generatePalette(color: string): Palette {
   }
 
   return colorMap;
-}
-
-const defaultBodyFonts = [
-  '-apple-system',
-  'BlinkMacSystemFont',
-  '"Segoe UI"',
-  'Helvetica',
-  'Arial',
-  'sans-serif',
-  '"Apple Color Emoji"',
-  '"Segoe UI Emoji"',
-  '"Segoe UI Symbol"',
-] as FontList;
-
-const defaultMonoFonts = [
-  'SFMono-Regular',
-  'Melno',
-  'Monaco',
-  'Consolas',
-  '"Liberation Mono"',
-  '"Courier New"',
-  'monospace',
-] as FontList;
-
-/**
- * Create a font-family string usable in CSS. Merges input fonts with generic system fonts.
- *
- * @param family Body, Heading, or Mono.
- * @param font Font to merge with system fonts.
- * @param fonts Additional fonts to merge with system fonts.
- */
-export function generateFontFamily(family: FontFamily, font: string, ...fonts: string[]): string {
-  const cleanedFonts = [font, ...fonts].map(f => {
-    f = font.replaceAll('"', '');
-    if (f.includes(' ')) {
-      f = `"${f}"`;
-    }
-    return f;
-  });
-  if (family === 'mono') {
-    return [...cleanedFonts, defaultMonoFonts].join(', ');
-  } else {
-    return [...cleanedFonts, defaultBodyFonts].join(', ');
-  }
 }
