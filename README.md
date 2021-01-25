@@ -97,24 +97,24 @@ While I have not personally tested this with Tailwind, according to their [docs]
 
 ```js
 // tailwind.config.js
-const { generatePalette } = require('palette-by-numbers') 
+const { generatePalette } = require('palette-by-numbers');
 
 module.exports = {
-    theme: {
-        extend: {
-            colors: {
-                primary: generatePalette('#61988E'),
-                secondary: generatePalette('#493843'),
-            }
-        }
-    }
-}
+  theme: {
+    extend: {
+      colors: {
+        primary: generatePalette('#61988E'),
+        secondary: generatePalette('#493843'),
+      },
+    },
+  },
+};
 ```
 
 By default, the midpoint, i.e. `500`, is set to the original color passed. You can override this by passing an object as the second argument with the `originalAtMidpoint` set to `false`. For example:
 
 ```js
-const theme = generatePalette('#61988E', { originalAtMidpoint: false })
+const theme = generatePalette('#61988E', { originalAtMidpoint: false });
 // This will generate:
 // {
 //   '50': 'hsla(170, 55%, 95%, 1)',
@@ -153,4 +153,3 @@ export function createFontFamilies() {
   return extendTheme({ fonts });
 }
 ```
-
