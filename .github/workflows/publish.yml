@@ -15,7 +15,15 @@ jobs:
           node-version: 14
       - name: Install Dependencies
         run: npm install
+      - name: Prepare
+        run: |
+          yarn tsc
+          cp package.json dist/
+          cp LICENSE dist/
+          cp README dist/
+          cp CHANGELOG dist/
       - name: NPM Publish
+        run: 'cd dist'
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
