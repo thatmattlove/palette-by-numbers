@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDeclarationOnly": true,
+    "moduleResolution": "node",
+    "noUnusedParameters": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "declaration": true,
+    "target": "esnext",
+    "module": "esnext",
+    "outDir": "./dist",
+    "jsx": "react",
+    "strict": true,
+    "baseUrl": "."
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "esm", "src/**/*.test.ts"]
+}
