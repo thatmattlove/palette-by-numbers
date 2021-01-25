@@ -19,7 +19,7 @@ jobs:
         run: yarn install
 
       - name: Prepare
-        run: yarn tsc
+        run: yarn build
 
       - name: NPM Publish
         uses: JS-DevTools/npm-publish@v1
