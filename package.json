@@ -1,6 +1,6 @@
 {
   "name": "palette-by-numbers",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Easily Generate a Tailwind/Chakra-UI Style Color Palette",
   "main": "index.js",
   "author": "checktheroads <matt@allroads.io>",
