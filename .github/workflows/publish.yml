@@ -7,6 +7,14 @@ jobs:
   publish:
     runs-on: ubuntu-20.04
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v1
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Install Dependencies
+        run: npm install
       - name: NPM Publish
         uses: JS-DevTools/npm-publish@v1
         with:
