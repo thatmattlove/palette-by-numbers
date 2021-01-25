@@ -20,7 +20,7 @@ jobs:
           yarn tsc
           cp package.json dist/
           cp LICENSE dist/
-          cp README dist/
+          cp README.md dist/
           cp CHANGELOG dist/
       - name: Change Directory
         run: 'cd dist'
