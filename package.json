@@ -1,6 +1,6 @@
 {
   "name": "palette-by-numbers",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Easily Generate a Tailwind/Chakra-UI Style Color Palette",
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
