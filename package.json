@@ -1,21 +1,21 @@
 {
   "name": "palette-by-numbers",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Easily Generate a Tailwind/Chakra-UI Style Color Palette",
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
   "main": "dist/index.js",
   "module": "esm/index.js",
-  "author": "checktheroads <matt@allroads.io>",
+  "author": "Matt Love <matt@hyperglass.dev>",
   "license": "BSD-3-Clause-Clear",
   "repository": {
     "type": "git",
-    "url": "https://github.com/checktheroads/palette-by-numbers"
+    "url": "https://github.com/thatmattlove/palette-by-numbers"
   },
   "bugs": {
-    "url": "https://github.com/checktheroads/palette-by-numbers/issues"
+    "url": "https://github.com/thatmattlove/palette-by-numbers/issues"
   },
-  "homepage": "https://github.com/checktheroads/palette-by-numbers#readme",
+  "homepage": "https://github.com/thatmattlove/palette-by-numbers#readme",
   "keywords": [
     "theme",
     "color",
